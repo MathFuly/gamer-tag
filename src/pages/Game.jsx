@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import Load from "../components/Load";
 import { useGetGameByIdQuery } from "../redux/services/gamesCore";
 
@@ -21,7 +21,11 @@ const Game = () => {
   const { data, isFetching, error } = useGetGameByIdQuery(query);
 
   if (isFetching) {
-    return <Load className="mt-48" />;
+    return (
+      <div className="py-96 w-[90%] md:w-1/2 mx-auto">
+        <Load />
+      </div>
+    );
   }
 
   console.log(data);
@@ -34,18 +38,18 @@ const Game = () => {
   };
 
   return (
-    <div style={style} className="pt-72 min-h-screen w-full mx-auto">
+    <div style={style} className="pt-28 md:pt-72 min-h-screen w-full mx-auto">
       <div className="min-h-screen bg-gradient-to-t from-dark-gray to-transparent">
         <div className="bg-dark-gray text-white rounded-md p-4 md:w-[80%] mx-auto w-[98%]">
-          <div className="flex items-center md:flex-row flex-col">
+          <div className="flex justify-center items-center md:flex-row flex-col w-full">
             <img
               src={data?.background_image}
               alt=""
               className="w-[250px] h-[320px] object-cover rounded-md"
             />
-            <div className="ml-5 flex flex-col w-[90%] md:w-full">
+            <div className="ml-5 flex flex-col w-[92%] md:w-full">
               <div className="flex md:items-center md:flex-row flex-col">
-                <h1 className="md:text-5xl text-4xl font-semibold mr-4">
+                <h1 className="md:text-5xl text-4xl font-semibold mr-4 mt-4 md:mt-0">
                   {data?.name}
                 </h1>
                 {data?.metacritic && (
@@ -67,7 +71,10 @@ const Game = () => {
               </p>
               <div className="flex flex-row my-2">
                 {data?.parent_platforms?.map((plat) => (
-                  <p key={plat?.platform?.id}>
+                  <NavLink
+                    to={`/platform/${plat?.platform?.id}`}
+                    key={plat?.platform?.id}
+                  >
                     {plat?.platform?.slug == "nintendo" && (
                       <SiNintendo
                         size={22}
@@ -109,7 +116,7 @@ const Game = () => {
                         className={`${styles.icons} hover:text-green-500`}
                       />
                     )}
-                  </p>
+                  </NavLink>
                 ))}
               </div>
 
@@ -117,12 +124,13 @@ const Game = () => {
                 <div className="flex text-white my-2 md:w-1/2 lg:w-1/2">
                   <p className="text-sm mr-2 text-dark-gray-300">Genres:</p>
                   {data?.genres?.map((genre) => (
-                    <p
+                    <NavLink
+                      to={`/genre/${genre.id}`}
                       key={genre.id}
                       className="mr-2 text-xs cursor-pointer hover:text-rose-500 transition-colors"
                     >
                       #{genre.name}
-                    </p>
+                    </NavLink>
                   ))}
                 </div>
               )}
@@ -159,12 +167,11 @@ const Game = () => {
           <div className="mt-6">
             {/*   <hr className="border-1 border-dark-gray-300 mb-2 w-[90%]" /> */}
             {data?.description_raw && (
-              <div>
-                <p className="md:w-[85%] w-[90%] md:mx-0 mx-auto h-28 md:h-fit overflow-y-scroll md:overflow-visible scrollbar">
-                  <span className="text-base text-dark-gray-300">Sinopse:</span>{" "}
+              <div className="md:w-[85%] w-[90%] md:mx-0 mx-auto h-28 md:h-fit overflow-y-scroll md:overflow-visible scrollbar">
+                <p className="">
+                  <span className="text-base text-dark-gray-300">Sinopse:</span>
                   <span>{data?.description_raw}</span>
                 </p>
-                <p></p>
               </div>
             )}
           </div>

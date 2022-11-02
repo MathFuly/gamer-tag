@@ -6,12 +6,18 @@ import Load from "../Load";
 const BestGamesList = () => {
   const { data, isFetching, error } = useGetListBestGamesQuery();
 
+  console.log(data?.results)
+
   if (isFetching) {
-    return <Load />;
+    return (
+      <div className="w-full md:w-1/2 py-2 px-2 md:px-10">
+        <Load />
+      </div>
+    );
   }
 
   return (
-    <div className="w-full md:w-1/2 py-2 px-2 md:px-10 animate-slideup">
+    <div className="w-full md:w-1/2 py-2 px-2 md:px-10 animate-slideleft">
       <div className="flex text-white text-3xl mb-4 font-semibold uppercase bg-sky-900 rounded-md py-2 px-4">
         <BiJoystick size={40} className="mr-2"/>
         <p>Best Scores</p>

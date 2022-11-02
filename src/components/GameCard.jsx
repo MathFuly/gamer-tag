@@ -7,7 +7,7 @@ import {
   SiPlaystation,
   SiXbox,
 } from "react-icons/si";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { styles } from "../assets/constants";
 
 const GameCard = ({ id,title, cover, platforms, genres, metacritic }) => {
@@ -15,13 +15,11 @@ const GameCard = ({ id,title, cover, platforms, genres, metacritic }) => {
 
       const goTo = (idpass) => {
         navigate(`/game/${idpass}`);
-      };
+  };
+
   
   return (
-    <div
-      className="flex my-2 bg-dark-gray-100 hover:bg-gray-900  cursor-pointer rounded-md overflow-hidden transition-transform"
-      onClick={() => goTo(id)}
-    >
+    <div className="flex my-2 bg-dark-gray-100 hover:bg-gray-900  cursor-pointer rounded-md overflow-hidden transition-transform">
       {cover && (
         <img src={cover} alt="" className="h-36 md:h-28 w-40 object-cover" />
       )}
@@ -33,7 +31,10 @@ const GameCard = ({ id,title, cover, platforms, genres, metacritic }) => {
       )}
       <div className="flex flex-col ml-4 pt-1 w-[55%] md:w-[70%]">
         <div className="flex flex-col md:flex-row md:items-center mb-2">
-          <h1 className="text-white font-semibold md:w-fit truncate text-xl">
+          <h1
+            onClick={() => goTo(id)}
+            className="text-white font-semibold md:w-fit truncate text-xl"
+          >
             {title}
           </h1>
           <h2 className="md:ml-2 w-fit font-semibold bg-green-500 bg-opacity-10 text-green-500 p-1 mt-1 rounded-md text-xs">
@@ -43,7 +44,10 @@ const GameCard = ({ id,title, cover, platforms, genres, metacritic }) => {
 
         <div className="flex flex-row p-2">
           {platforms?.map((plat) => (
-            <p key={plat?.platform?.id}>
+            <NavLink
+              key={plat?.platform?.id}
+              to={`platform/${plat?.platform?.id}`}
+            >
               {plat?.platform?.slug == "nintendo" && (
                 <SiNintendo
                   size={22}
@@ -85,7 +89,7 @@ const GameCard = ({ id,title, cover, platforms, genres, metacritic }) => {
                   className={`${styles.icons} hover:text-green-500`}
                 />
               )}
-            </p>
+            </NavLink>
           ))}
         </div>
         <div className="flex text-white">

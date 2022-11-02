@@ -24,6 +24,10 @@ export const gamesCoreApi = createApi({
     getTrailerById: builder.query({
       query: (query) => `/games/${query}/movies${key}`,
     }),
+    getPlatformGames: builder.query({
+      query: ({ query, page }) =>
+        `/games${key}&parent_platforms=${query  || 1}&page=${page || 1}`
+    }),
   }),
 });
 
@@ -32,5 +36,6 @@ export const {
   useGetGameByIdQuery,
   useGetSearchGamesQuery,
   useGetScreenshotsByIdQuery,
-  useGetTrailerByIdQuery
+  useGetTrailerByIdQuery,
+  useGetPlatformGamesQuery,
 } = gamesCoreApi;

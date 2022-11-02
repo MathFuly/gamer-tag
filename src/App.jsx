@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div className="bg-dark-gray min-h-screen">
+    <div className="bg-dark-gray min-h-screen scrollbar-main">
       <Navbar />
       <div>
         <Outlet />

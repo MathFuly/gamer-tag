@@ -15,18 +15,17 @@ const SearchCard = ({ title, cover, meta, id }) => {
   const goTo = (idpass) => {
     navigate(`/game/${idpass}`);
   };
-  console.log(id)
 
   return (
     <div
       style={style}
-      className="animate-slowfade m-4 rounded-md overflow-hidden h-80 w-64 cursor-pointer"
+      className="animate-slowfade m-4 rounded-md overflow-hidden h-40 w-32 md:h-80 md:w-64 cursor-pointer"
     >
       <div
         className="hover:bg-[rgba(0,0,0,0.8)] bg-blend-color h-full w-full flex flex-col justify-center items-center group transition-all"
         onClick={() => goTo(id)}
       >
-        <h1 className=" hidden group-hover:block text-white mx-4 text-center font-bold text-lg  transition-all">
+        <h1 className=" hidden group-hover:block text-white mx-4 text-center font-bold text-sm md:text-lg  transition-all">
           {title}
         </h1>
         {meta && (

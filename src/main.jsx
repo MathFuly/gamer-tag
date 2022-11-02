@@ -11,6 +11,8 @@ import { Provider } from "react-redux";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Game from "./pages/Game";
+import Plataform from "./pages/Plataform";
+import Genre from "./pages/Genre";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -21,6 +23,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path="/" element={<Home />} />
             <Route path="search" element={<Search />} />
             <Route path="game/:id" element={<Game />} />
+            <Route path="platform/:id" element={<Plataform />} />
+            <Route path="genre/:id" element={<Genre />} />
           </Route>
         </Routes>
       </BrowserRouter>
