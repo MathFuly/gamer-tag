@@ -19,7 +19,7 @@ const Screenshots = ({ id }) => {
               <img
                 src={ss.image}
                 alt=""
-                className="w-60 m-2 rounded-sm"
+                className="w-60 m-2 rounded-sm cursor-pointer"
                 onClick={() => setImagex({ open: true, image: ss.image })}
               />
             ))}

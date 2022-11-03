@@ -10,16 +10,15 @@ import {
 import { NavLink, useNavigate } from "react-router-dom";
 import { styles } from "../assets/constants";
 
-const GameCard = ({ id,title, cover, platforms, genres, metacritic }) => {
-      const navigate = useNavigate();
+const GameCard = ({ id, title, cover, platforms, genres, metacritic }) => {
+  const navigate = useNavigate();
 
-      const goTo = (idpass) => {
-        navigate(`/game/${idpass}`);
+  const goTo = (idpass) => {
+    navigate(`/game/${idpass}`);
   };
 
-  
   return (
-    <div className="flex my-2 bg-dark-gray-100 hover:bg-gray-900  cursor-pointer rounded-md overflow-hidden transition-transform">
+    <div className="flex my-2 bg-dark-gray-100 hover:bg-gray-900 rounded-md overflow-hidden transition-transform">
       {cover && (
         <img src={cover} alt="" className="h-36 md:h-28 w-40 object-cover" />
       )}
@@ -33,7 +32,7 @@ const GameCard = ({ id,title, cover, platforms, genres, metacritic }) => {
         <div className="flex flex-col md:flex-row md:items-center mb-2">
           <h1
             onClick={() => goTo(id)}
-            className="text-white font-semibold md:w-fit truncate text-xl"
+            className="text-white font-semibold md:w-fit truncate text-xl cursor-pointer hover:text-rose-600"
           >
             {title}
           </h1>
@@ -94,12 +93,13 @@ const GameCard = ({ id,title, cover, platforms, genres, metacritic }) => {
         </div>
         <div className="flex text-white">
           {genres?.map((genre) => (
-            <p
+            <NavLink
+              to={`/genre/${genre.id}`}
               key={genre.id}
               className="mr-2 text-xs cursor-pointer hover:text-rose-500 transition-colors"
             >
               #{genre.name}
-            </p>
+            </NavLink>
           ))}
         </div>
       </div>

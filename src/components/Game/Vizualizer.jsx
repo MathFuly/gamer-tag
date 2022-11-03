@@ -15,13 +15,13 @@ const Vizualizer = ({ open, image }) => {
       } w-full h-screen bg-[rgba(0,0,0,0.8)] top-0 left-0 flex justify-center items-center `}
       onClick={() => setOpenx(false)}
     >
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center w-[75%]">
         <TfiClose
           className="text-white mb-5 font-semibold cursor-pointer"
           size={30}
           onClick={() => setOpenx(false)}
         />
-        <img src={image} alt="" className="max-w-[75%]" />
+        <img src={image} alt="" className="w-full max-h-[800px] object-fill" />
       </div>
     </div>
   );

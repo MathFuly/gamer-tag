@@ -13,6 +13,8 @@ import Search from "./pages/Search";
 import Game from "./pages/Game";
 import Plataform from "./pages/Plataform";
 import Genre from "./pages/Genre";
+import Tags from "./pages/Tags";
+import Developer from "./pages/Developer";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -25,6 +27,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path="game/:id" element={<Game />} />
             <Route path="platform/:id" element={<Plataform />} />
             <Route path="genre/:id" element={<Genre />} />
+            <Route path="tag/:id" element={<Tags />} />
+            <Route path="developer/:id" element={<Developer />} />
           </Route>
         </Routes>
       </BrowserRouter>

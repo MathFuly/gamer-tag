@@ -54,7 +54,11 @@ const Search = () => {
               ))
             )}
         </li>
-        {isFetching && <Load />}
+        {isFetching && (
+          <div className="w-full flex justify-center items-center">
+            <Load search={true} />
+          </div>
+        )}
 
         <li
           id="vigia"

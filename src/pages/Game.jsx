@@ -137,13 +137,14 @@ const Game = () => {
               {data?.tags?.length !== 0 && (
                 <div className="flex text-white flex-wrap items-center md:w-1/2 lg:w-1/2">
                   <p className="text-sm mr-2 text-dark-gray-300 mt-1">Tags:</p>
-                  {data?.tags?.map((genre) => (
-                    <p
-                      key={genre.id}
+                  {data?.tags?.map((tag) => (
+                    <NavLink
+                      to={`/tag/${tag.id}`}
+                      key={tag.id}
                       className="mr-2 mt-1 text-xs cursor-pointer hover:text-rose-500 transition-colors"
                     >
-                      #{genre.name}
-                    </p>
+                      #{tag.name}
+                    </NavLink>
                   ))}
                 </div>
               )}
@@ -153,12 +154,12 @@ const Game = () => {
                     Developers:
                   </p>
                   {data?.developers?.map((developer) => (
-                    <p
+                    <NavLink to={`/developer/${developer.id}`}
                       key={developer.id}
                       className="mr-2 mt-1 text-xs cursor-pointer hover:text-rose-500 transition-colors"
                     >
                       {developer.name}
-                    </p>
+                    </NavLink>
                   ))}
                 </div>
               )}
@@ -169,7 +170,7 @@ const Game = () => {
             {data?.description_raw && (
               <div className="md:w-[85%] w-[90%] md:mx-0 mx-auto h-28 md:h-fit overflow-y-scroll md:overflow-visible scrollbar">
                 <p className="">
-                  <span className="text-base text-dark-gray-300">Sinopse:</span>
+                  <span className="text-base text-dark-gray-300">Sinopse: </span>
                   <span>{data?.description_raw}</span>
                 </p>
               </div>
