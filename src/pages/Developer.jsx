@@ -55,19 +55,18 @@ const Developer = () => {
 
   const style = {
     background: `url(${dev?.image_background}) center top/cover`,
-    backgroundColor: "rgba(0,0,0,0.4)",
+    backgroundColor: "rgba(0,0,0,0.5)",
     backgroundBlendMode: "color",
   };
 
-  console.log(dev);
 
   return (
     <div className={`${dev == "" ? "hidden" : ""}`}>
       <div className="h-[500px] w-full mx-auto" style={style}>
         <div className="w-full min-h-full bg-gradient-to-t from-dark-gray to-transparent flex flex-col items-center justify-end">
-          <p className="text-white text-6xl font-semibold pb-4">{dev?.name}</p>
+          <p className="text-white text-center text-3xl xl:text-6xl font-semibold pb-4">{dev?.name}</p>
           {dev?.description && (
-            <p className="text-white w-1/2 h-14 scrollbar overflow-hidden overflow-y-scroll text-xs text-center">
+            <p className="text-white w-[90%] xl:w-1/2 h-14 scrollbar overflow-hidden overflow-y-scroll text-xs text-center">
               {dev?.description?.replace("<p>", "").replace("</p>", "")}
             </p>
           )}
@@ -79,6 +78,7 @@ const Developer = () => {
             games?.map((game) =>
               game?.map((g) => (
                 <SearchCard
+                  key={g.id}
                   title={g.name}
                   cover={g.background_image}
                   meta={g.metacritic}

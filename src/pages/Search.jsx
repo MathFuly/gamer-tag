@@ -29,7 +29,6 @@ const Search = () => {
       }
     });
 
-
     intersectionOberser.observe(document.querySelector("#vigia"));
 
     return () => intersectionOberser.disconnect();
@@ -37,8 +36,8 @@ const Search = () => {
 
   return (
     <div className="pt-44">
-      <h1 className="text-white text-xl max-w-[90%] mb-8 text-center bg-black w-fit p-6 mx-auto rounded-lg bg-opacity-40">
-        Exibindo Resultados para: {query}
+      <h1 className="text-xl max-w-[90%] mb-8 text-center bg-black w-fit p-6 mx-auto rounded-lg bg-opacity-40 text-dark-gray-300">
+        Displaying Results for: <span className="text-rose-500 italic">{query}</span>
       </h1>
       <ul className="flex flex-col">
         <li className="flex flex-wrap items-center justify-center">
@@ -46,6 +45,7 @@ const Search = () => {
             games?.map((game) =>
               game?.map((g) => (
                 <SearchCard
+                  key={g.id}
                   title={g.name}
                   cover={g.background_image}
                   meta={g.metacritic}

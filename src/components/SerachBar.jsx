@@ -3,15 +3,20 @@ import { useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 
+import {  useDispatch } from "react-redux";
+import { activeBar } from "../redux/services/searchSlice";
+
 const SerachBar = () => {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     navigate(`/search?q=${search}`);
     setSearch("");
+    dispatch(activeBar(false))
   };
 
   return (

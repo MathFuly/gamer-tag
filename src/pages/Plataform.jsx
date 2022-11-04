@@ -70,21 +70,21 @@ const Plataform = () => {
       <div className="h-[500px] w-full mx-auto" style={style}>
         <div className="w-full min-h-full bg-gradient-to-t from-dark-gray to-transparent flex flex-col items-center justify-end">
           <p className="text-white text-6xl font-semibold">{plat[0]?.name}</p>
-          <div className="flex mt-10">
+          <div className="flex flex-wrap justify-center mt-10">
             {plat[0]?.platforms.length != 1 &&
               plat[0]?.platforms?.map((platin) => (
                 <p
+                  key={platin.id}
                   onClick={() => {
                     setPlatc(platin.id);
                     setGames([]);
                     setPage(1);
-                    setActive(platin.id);
                   }}
                   className={` mx-2 transition-all ${
                     platc == platin.id
                       ? "text-rose-600 border-b-2 border-rose-600"
                       : "text-dark-gray-300 border-b-2 border-transparent"
-                  }  font-semibold hover:text-gray-300 hover:border-gray-300 cursor-pointer`}
+                  }  font-semibold hover:text-gray-300 hover:border-gray-300 cursor-pointer mt-2 xl:mt-0`}
                 >
                   {platin?.name}
                 </p>
@@ -98,6 +98,7 @@ const Plataform = () => {
             games?.map((game) =>
               game?.map((g) => (
                 <SearchCard
+                  key={g.id}
                   title={g.name}
                   cover={g.background_image}
                   meta={g.metacritic}

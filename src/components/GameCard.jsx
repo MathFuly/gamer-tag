@@ -20,23 +20,23 @@ const GameCard = ({ id, title, cover, platforms, genres, metacritic }) => {
   return (
     <div className="flex my-2 bg-dark-gray-100 hover:bg-gray-900 rounded-md overflow-hidden transition-transform">
       {cover && (
-        <img src={cover} alt="" className="h-36 md:h-28 w-40 object-cover" />
+        <img src={cover} alt="" className="h-36 xl:h-28 w-40 object-cover" />
       )}
       {!cover && (
         <img
-          className="h-36 md:h-28 w-40 object-cover"
+          className="h-36 xl:h-28 w-40 object-cover"
           src="https://w0.peakpx.com/wallpaper/286/14/HD-wallpaper-glitch-controller-play-thumbnail.jpg"
         />
       )}
-      <div className="flex flex-col ml-4 pt-1 w-[55%] md:w-[70%]">
-        <div className="flex flex-col md:flex-row md:items-center mb-2">
+      <div className="flex flex-col ml-4 pt-1 w-[55%] xl:w-[70%]">
+        <div className="flex flex-col xl:flex-row xl:items-center mb-2">
           <h1
             onClick={() => goTo(id)}
-            className="text-white font-semibold md:w-fit truncate text-xl cursor-pointer hover:text-rose-600"
+            className="text-white font-semibold xl:w-fit truncate text-xl cursor-pointer hover:text-rose-600"
           >
             {title}
           </h1>
-          <h2 className="md:ml-2 w-fit font-semibold bg-green-500 bg-opacity-10 text-green-500 p-1 mt-1 rounded-md text-xs">
+          <h2 className="xl:ml-2 w-fit font-semibold bg-green-500 bg-opacity-10 text-green-500 p-1 mt-1 rounded-md text-xs">
             Metacritic: {metacritic}
           </h2>
         </div>

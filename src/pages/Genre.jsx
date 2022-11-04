@@ -72,6 +72,7 @@ const Genre = () => {
             games?.map((game) =>
               game?.map((g) => (
                 <SearchCard
+                  key={g.id}
                   title={g.name}
                   cover={g.background_image}
                   meta={g.metacritic}

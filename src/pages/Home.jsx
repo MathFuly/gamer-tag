@@ -8,11 +8,11 @@ const Home = () => {
 
   return (
     <div className="min-h-screen pt-20">
-      <div className="h-[200px] md:h-[700px] w-full mb-4 animate-slowfade">
+      <div className="h-[200px] 2xl:h-[700px] w-full mb-4 animate-slowfade">
         <img src={bgHomeImages[bg].image} alt="" className="w-full" />
       </div>
 
-      <div className="flex justify-center w-full flex-col md:flex-row lg:flex-row">
+      <div className="flex  justify-center w-full flex-col 2xl:flex-row">
         <BestGamesList />
         <Upcoming />
       </div>

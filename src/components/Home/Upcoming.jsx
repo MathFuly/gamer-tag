@@ -4,7 +4,7 @@ import UpcomingCard from "./UpcomingCard";
 
 const Upcoming = () => {
   return (
-    <div className="w-full md:w-1/3 flex flex-col bg-dark-gray-100 p-4 h-fit rounded-md bg-opacity-70 animate-slideright">
+    <div className="w-full 2xl:w-1/3 flex flex-col bg-dark-gray-100 p-4 h-fit rounded-md bg-opacity-70 animate-slowfade xl:animate-slideright">
       <div className="flex text-white text-3xl mb-4 font-semibold uppercase bg-sky-900 rounded-md py-2 px-4">
         <HiFire size={40} className="mr-2" />
         <p>Upcoming Games</p>

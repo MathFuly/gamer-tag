@@ -55,18 +55,15 @@ const Tags = () => {
 
   const style = {
     background: `url(${tag?.image_background}) center top/cover`,
-    backgroundColor: "rgba(0,0,0,0.4)",
     backgroundBlendMode: "color",
+    backgroundColor: "rgba(0,0,0,0.4)",
   };
-
 
   return (
     <div className={`${tag == "" ? "hidden" : ""}`}>
       <div className="h-[500px] w-full mx-auto" style={style}>
         <div className="w-full min-h-full bg-gradient-to-t from-dark-gray to-transparent flex flex-col items-center justify-end">
-          <p className="text-white text-6xl font-semibold pb-4">
-            {tag?.name}
-          </p>
+          <p className="text-white text-6xl font-semibold pb-4">{tag?.name}</p>
         </div>
       </div>
       <ul className="flex flex-col mt-20">
@@ -75,6 +72,7 @@ const Tags = () => {
             games?.map((game) =>
               game?.map((g) => (
                 <SearchCard
+                  key={g.id}
                   title={g.name}
                   cover={g.background_image}
                   meta={g.metacritic}

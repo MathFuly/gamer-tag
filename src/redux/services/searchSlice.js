@@ -1,22 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  gamesList: [],
+  openBar: false,
 };
 
 const searchSlice = createSlice({
   name: "search",
   initialState,
   reducers: {
-    pullGames: (state, action) => {
-      state.gamesList = [...state.gamesList, action.payload];
-    },
-    emptyArray: (state) => {
-      state.gamesList = [];
+    activeBar: (state, action) => {
+      state.openBar = action.payload;
     },
   },
 });
 
-export const { pullGames, emptyArray, gamesList } = searchSlice.actions;
+export const { activeBar } = searchSlice.actions;
 
 export default searchSlice.reducer;

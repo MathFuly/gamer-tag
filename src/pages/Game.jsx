@@ -28,7 +28,6 @@ const Game = () => {
     );
   }
 
-  console.log(data);
 
   const style = {
     background: `url(${data?.background_image}) center/cover`,
@@ -38,17 +37,17 @@ const Game = () => {
   };
 
   return (
-    <div style={style} className="pt-28 md:pt-72 min-h-screen w-full mx-auto">
+    <div style={style} className="pt-28 xl:pt-72 min-h-screen w-full mx-auto">
       <div className="min-h-screen bg-gradient-to-t from-dark-gray to-transparent">
-        <div className="bg-dark-gray text-white rounded-md p-4 md:w-[80%] mx-auto w-[98%]">
-          <div className="flex justify-center items-center md:flex-row flex-col w-full">
+        <div className="bg-dark-gray text-white rounded-md p-4 xl:w-[80%] mx-auto w-[98%]">
+          <div className="flex justify-center items-center xl:flex-row flex-col w-full">
             <img
               src={data?.background_image}
               alt=""
               className="w-[250px] h-[320px] object-cover rounded-md"
             />
-            <div className="ml-5 flex flex-col w-[92%] md:w-full">
-              <div className="flex md:items-center md:flex-row flex-col">
+            <div className="ml-5 flex flex-col w-[92%] xl:w-full">
+              <div className="flex xl:items-center xl:flex-row flex-col">
                 <h1 className="md:text-5xl text-4xl font-semibold mr-4 mt-4 md:mt-0">
                   {data?.name}
                 </h1>
@@ -121,7 +120,7 @@ const Game = () => {
               </div>
 
               {data?.genres?.length !== 0 && (
-                <div className="flex text-white my-2 md:w-1/2 lg:w-1/2">
+                <div className="flex flex-wrap items-center text-white my-2 xl:w-1/2">
                   <p className="text-sm mr-2 text-dark-gray-300">Genres:</p>
                   {data?.genres?.map((genre) => (
                     <NavLink
@@ -135,7 +134,7 @@ const Game = () => {
                 </div>
               )}
               {data?.tags?.length !== 0 && (
-                <div className="flex text-white flex-wrap items-center md:w-1/2 lg:w-1/2">
+                <div className="flex text-white flex-wrap items-center xl:w-1/2">
                   <p className="text-sm mr-2 text-dark-gray-300 mt-1">Tags:</p>
                   {data?.tags?.map((tag) => (
                     <NavLink
@@ -149,12 +148,13 @@ const Game = () => {
                 </div>
               )}
               {data?.developers?.length !== 0 && (
-                <div className="flex text-white flex-wrap items-center md:w-1/2 lg:w-1/2 mt-1">
+                <div className="flex text-white flex-wrap items-center xl:w-1/2 mt-1">
                   <p className="text-sm mr-2 text-dark-gray-300 mt-1">
                     Developers:
                   </p>
                   {data?.developers?.map((developer) => (
-                    <NavLink to={`/developer/${developer.id}`}
+                    <NavLink
+                      to={`/developer/${developer.id}`}
                       key={developer.id}
                       className="mr-2 mt-1 text-xs cursor-pointer hover:text-rose-500 transition-colors"
                     >
@@ -166,11 +166,12 @@ const Game = () => {
             </div>
           </div>
           <div className="mt-6">
-            {/*   <hr className="border-1 border-dark-gray-300 mb-2 w-[90%]" /> */}
             {data?.description_raw && (
-              <div className="md:w-[85%] w-[90%] md:mx-0 mx-auto h-28 md:h-fit overflow-y-scroll md:overflow-visible scrollbar">
+              <div className="xl:w-[85%] w-[90%] xl:mx-0 mx-auto h-28 xl:h-fit overflow-y-scroll xl:overflow-visible scrollbar">
                 <p className="">
-                  <span className="text-base text-dark-gray-300">Sinopse: </span>
+                  <span className="text-base text-dark-gray-300">
+                    Sinopse:{" "}
+                  </span>
                   <span>{data?.description_raw}</span>
                 </p>
               </div>
